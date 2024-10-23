@@ -1,101 +1,110 @@
-import Image from "next/image";
+import About from "./components/About";
+import { Card } from "./components/Card";
+import { CardMobile } from "./components/CardMobile";
+import Footer from "./components/Footer";
+import FractalTree from "./components/FractalTree";
+import SectionTitle from "./components/SectionTitle";
+import SocialLinks from "./components/SocialLinks";
+import { projects } from "./constants/projects";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <>
+      <main className="font-ntr light m-auto p-4 w-5/6 max-w-full px-8 snap-y snap-mandatory min-h-screen">
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+        <section id="home" className="snap-center h-screen flex flex-col justify-center 
+                                      items-center text-center p-5">
+          <h1 className="font-normal text-[2.5rem] md:text-[3rem] lg:text-[3rem]">
+            Emiliano Lezama
+          </h1>
+          <h2 className="font-normal text-[1rem] md:text-[1.2rem] lg:text-[1.2rem] mt-0">
+            Software Engineering Student
+          </h2>
+
+          <FractalTree />
+        </section>
+
+        <About />
+
+        <section id="projects" className="snap-start lg:snap-center min-h-screen flex flex-col text-center md:p-5">
+          <SectionTitle sectionName="Projects" />
+
+          <div className="w-full h-full flex justify-center items-center mt-24">
+            <ul
+              role="list"
+              className="flex overflow-x-auto snap-x snap-mandatory max-w-full mx-auto md:p-5 scrollbar-hidden gap-2"
+            >
+              {projects.map((project, index) => (
+                <li key={index} className="flex-shrink-0 snap-center w-full max-w-xs mx-2">
+                  <div className="block md:hidden">
+                    <CardMobile
+                      cardId={index}
+                      title={project.title}
+                      availableIn={project.availableIn}
+                      githubLink={project.githubLink}
+                      imageSrc={project.imgSrc}
+                      description={project.description}
+                      stack={project.stack}
+                    />
+                  </div>
+
+                  <div className="hidden md:block">
+                    <Card
+                      cardId={index}
+                      title={project.title}
+                      availableIn={project.availableIn}
+                      githubLink={project.githubLink}
+                      imageSrc={project.imgSrc}
+                      description={project.description}
+                      stack={project.stack}
+                      className="hidden md:block"
+                    />
+                  </div>
+                </li>
+              ))}
+            </ul>
+
+          </div>
+        </section>
+
+
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+      <SocialLinks />
+
+      <Footer />
+    </>
+
   );
 }
+
+/*
+
+        <section id="projects" className="snap-center h-screen flex flex-col text-center p-5">
+         <SectionTitle sectionName="/ Projects"/> 
+
+          <div className="w-full h-full flex justify-center items-center">
+            <ul
+              role="list"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 
+                         max-w-full mx-auto p-5 scroll-smooth justify-center items-center"
+              style={{ height: 'calc(100vh / 2)' }}
+            >
+              {projects.map((project, index) => (
+                <li key={index} className="flex-shrink-0">
+                  <Card
+                    cardId={index}
+                    title={project.title}
+                    availableIn={project.availableIn}
+                    githubLink={project.githubLink}
+                    imageSrc={project.imgSrc}
+                    description={project.description}
+                    stack={project.stack}
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+*/
