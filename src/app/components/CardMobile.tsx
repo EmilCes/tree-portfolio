@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import TechSkill from "./TechSkill";
 import { motion } from "framer-motion";
 
@@ -7,7 +8,6 @@ export const CardMobile = ({
     cardId,
     title,
     imageSrc,
-    availableIn,
     githubLink,
     description,
     stack,
@@ -40,8 +40,8 @@ export const CardMobile = ({
                         href={githubLink}
                         target="_blank"
                     >
-                        <img src="/images/github-dark-logo.svg" alt="GitHub Dark Logo" className="dark:hidden w-4 h-4" />
-                        <img src="/images/github-light-logo.svg" alt="GitHub Light Logo" className="hidden dark:block w-4 h-4" />
+                        <Image src="/images/github-dark-logo.svg" alt="GitHub Dark Logo" className="dark:hidden w-4 h-4" />
+                        <Image src="/images/github-light-logo.svg" alt="GitHub Light Logo" className="hidden dark:block w-4 h-4" />
                     </a>
                 </div>
 

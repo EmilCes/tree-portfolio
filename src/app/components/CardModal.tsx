@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Skill from "./Skill";
 
 const CardModal = ({ isOpen, onClose, title, imageSrc, description, skills, availableIn, githubLink }: ModalProps) => {
@@ -21,12 +22,12 @@ const CardModal = ({ isOpen, onClose, title, imageSrc, description, skills, avai
 
         <div className="modal-left flex flex-col items-center justify-evenly">
           <h1 className="text-xl font-bold mb-4">{title}</h1>
-          <img src={imageSrc} alt="Project Image" className="w-full h-auto" />
+          <Image src={imageSrc} alt="Project Image" className="w-full h-auto" />
 
           <div className="align-top">
             <div className="mt-4 text-left text-sm flex items-center gap-2">
-              <img src="/images/github-dark-logo.svg" alt="GitHub Dark Logo" className="dark:hidden w-4 h-4" />
-              <img src="/images/github-light-logo.svg" alt="GitHub Light Logo" className="hidden dark:block w-4 h-4" />
+              <Image src="/images/github-dark-logo.svg" alt="GitHub Dark Logo" className="dark:hidden w-4 h-4" />
+              <Image src="/images/github-light-logo.svg" alt="GitHub Light Logo" className="hidden dark:block w-4 h-4" />
               <a
                 href={githubLink}
                 className="hover:text-black dark:hover:text-black transition-colors duration-300 px-2 py-1 rounded"
@@ -36,8 +37,8 @@ const CardModal = ({ isOpen, onClose, title, imageSrc, description, skills, avai
             </div>
 
             <div className="mt-2 text-left text-sm flex items-center gap-2">
-              <img src="/images/link-dark-logo.svg" alt="Link Dark Logo" className="dark:hidden w-4 h-4" />
-              <img src="/images/link-light-logo.svg" alt="Link Light Logo" className="hidden dark:block w-4 h-4" />
+              <Image src="/images/link-dark-logo.svg" alt="Link Dark Logo" className="dark:hidden w-4 h-4" />
+              <Image src="/images/link-light-logo.svg" alt="Link Light Logo" className="hidden dark:block w-4 h-4" />
               <a
                 href={availableIn}
                 className="hover:text-black dark:hover:text-black transition-colors duration-300 px-2 py-1 rounded"

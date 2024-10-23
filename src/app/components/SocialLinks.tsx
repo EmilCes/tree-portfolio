@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { socialLinks } from "../constants/socialLinks"
 
 export const SocialLinks = () => {
@@ -8,8 +9,8 @@ export const SocialLinks = () => {
                 <a key={index} href={socialLinks.href} aria-label={socialLinks.name} target="_blank"
                     className="flex items-center justify-center"
                 >
-                    <img src={socialLinks.darkImageSrc} alt={`${socialLinks.name} Logo`} className="dark:hidden"  />
-                    <img src={socialLinks.lightImageSrc} alt={`${socialLinks.name} Logo`} className="hidden dark:block" />
+                    <Image src={socialLinks.darkImageSrc} alt={`${socialLinks.name} Logo`} className="dark:hidden"  />
+                    <Image src={socialLinks.lightImageSrc} alt={`${socialLinks.name} Logo`} className="hidden dark:block" />
                 </a>
             );
         })}

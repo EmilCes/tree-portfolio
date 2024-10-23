@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useRef } from "react";
 
 const Skill = ({ imageSrc, skillName }: SkillProps) => {
@@ -18,7 +19,7 @@ const Skill = ({ imageSrc, skillName }: SkillProps) => {
                 dragConstraints={constraintsRef}
                 className="w-20 h-20 rounded-full flex flex-col items-center justify-center"
             >
-                <img
+                <Image
                     className="w-8 h-8 mb-0 transition duration-300 dark:invert"
                     src={imageSrc}
                     alt={`${skillName} Icon`} />

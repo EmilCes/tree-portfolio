@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { techStack } from "../constants/techStack";
 import SectionTitle from "./SectionTitle";
 import Skill from "./Skill";
@@ -10,7 +11,7 @@ const About = () => {
             <div className="flex flex-col lg:flex-row mt-5">
                 <div className="w-full lg:w-1/2 p-2 text-center md:text-left lg:mr-10">
                     <p className="text-xl sm:text-2xl dark:text-platinum text-customGray">
-                        I'm a software engineering student, expected to graduate in August 2025.
+                        I&apos;m a software engineering student, expected to graduate in August 2025.
                         My focus is on the development of both <span className="font-black">frontend</span> and
                         <span className="font-black"> backend</span> systems,
                         with an emphasis on software design.
@@ -39,7 +40,7 @@ const About = () => {
                 </div>
 
                 <div className="w-full lg:w-1/2 p-2 flex justify-center items-center mt-5 lg:mt-0">
-                    <img
+                    <Image
                         alt="Emiliano Lezama"
                         src="/images/me.jpg"
                         className="shadow-custom border-none rounded-xl max-h-[20rem] lg:max-h-[28rem] object-contain"

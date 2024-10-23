@@ -4,8 +4,9 @@ import { useState } from "react";
 import TechSkill from "./TechSkill";
 import { AnimatePresence, motion } from "framer-motion";
 import { CircleX } from "lucide-react";
+import Image from "next/image";
 
-export const Card = ({ cardId, title, imageSrc, availableIn, githubLink, description, stack, className }: CardProps) => {
+export const Card = ({ cardId, title, imageSrc, githubLink, description, stack, className }: CardProps) => {
 
     const [selectedId, setSelectedId] = useState<null | string>(null);
     const strCardId = `card-${cardId}`;
@@ -20,7 +21,7 @@ export const Card = ({ cardId, title, imageSrc, availableIn, githubLink, descrip
                 onClick={() => setSelectedId(strCardId)}
                 whileHover={{ scale: 1.05 }}
             >
-                <motion.img
+                <Image
                     src={imageSrc}
                     alt="Project Image"
                     className="w-full h-48 object-cover"
@@ -75,7 +76,7 @@ export const Card = ({ cardId, title, imageSrc, availableIn, githubLink, descrip
                             <div className="flex justify-between gap-x-8 p-5">
 
                                 <div className="flex flex-col w-1/2">
-                                    <img src={imageSrc} className="rounded-2xl w-full object-cover" />
+                                    <Image src={imageSrc} alt="Project Image" className="rounded-2xl w-full object-cover" />
 
                                     <h1 className="text-left text-xl mt-4">
                                         {title}
@@ -83,8 +84,8 @@ export const Card = ({ cardId, title, imageSrc, availableIn, githubLink, descrip
 
                                     <div>
                                         <div className="mt-4 text-left text-sm flex items-center gap-2">
-                                            <img src="/images/github-dark-logo.svg" alt="GitHub Dark Logo" className="dark:hidden w-4 h-4" />
-                                            <img src="/images/github-light-logo.svg" alt="GitHub Light Logo" className="hidden dark:block w-4 h-4" />
+                                            <Image src="/images/github-dark-logo.svg" alt="GitHub Dark Logo" className="dark:hidden w-4 h-4" />
+                                            <Image src="/images/github-light-logo.svg" alt="GitHub Light Logo" className="hidden dark:block w-4 h-4" />
                                             <a
                                                 href={githubLink}
                                                 target="_blank"
